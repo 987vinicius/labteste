@@ -22,6 +22,9 @@ pt-BR:
         nome: Nome
         tipo: Tipo de Exame
         status: Status
+        tipos:
+          analise: 'Analise clínicas'
+          imagem: 'Imagem'
 
         <<: *LABORATORIO
         <<: *EXAME

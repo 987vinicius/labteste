@@ -1,19 +1,20 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Nome:</strong>
-  <%= @exame.nome %>
-</p>
-
-<p>
-  <strong>Tipo:</strong>
-  <%= @exame.tipo %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @exame.status %>
-</p>
-
-<%= link_to 'Edit', edit_exame_path(@exame) %> |
-<%= link_to 'Back', exames_path %>
+<div class="box-header with-border">
+  <h3 class="box-title">Dados Básicos</h3>
+</div>
+<div class="box-body no-padding">
+  <table class="table table-bordered table-striped">
+    <tr>
+      <td width="2%"><strong><%= Exame.human_attribute_name(:nome) %>:</strong></td>
+      <td width="35%"><%= @exame.nome %></td>
+      <td width="7%"><strong><%= Exame.human_attribute_name(:tipo) %>:</strong></td>
+      <td width="35%"><%= @exame.tipo %></td>
+    </tr>
+    <tr>
+      <td width="2%"><strong><%= Exame.human_attribute_name(:status) %>:</strong></td>
+      <td width="35%"><%= @exame.status %></td>
+    </tr>
+  </table>
+  <div class="box-footer">
+    <%= link_to 'Voltar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default" %>
+  </div>
+</div>
