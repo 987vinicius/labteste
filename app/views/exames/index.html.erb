@@ -17,6 +17,7 @@
                   <th class='text-center'>Nome</th>
                   <th class='text-center'>Tipo</th>
                   <th class='text-center'>Status</th>
+                  <th class='text-center'>Clinica</th>
                   <th class='text-center'>Ações</th>
                 </tr>
               </thead>
@@ -26,6 +27,9 @@
                   <td class='text-center'><%= exame.nome %></td>
                   <td class='text-center'><%= exame.tipo %></td>
                   <td class='text-center'><%= exame.status %></td>
+                  <td width="35%">
+                    
+                  </td>
                   <td class='text-center'>
                     <%= render 'shared/action_links', object: exame %>
                   </td>

@@ -12,6 +12,12 @@
     <tr>
       <td width="2%"><strong><%= Exame.human_attribute_name(:status) %>:</strong></td>
       <td width="35%"><%= @exame.status %></td>
+      <td width="2%"><strong><%= Laboratorio.human_attribute_name(:laboratorio) %>:</strong></td>
+      <td width="35%">
+          <% @exame.laboratorios.each do |g| %>
+            <%= g.nome if g.nome.present?%><br>
+          <% end %>
+      </td>
     </tr>
   </table>
   <div class="box-footer">
