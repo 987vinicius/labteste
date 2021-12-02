@@ -1,0 +1,3 @@
+class LaboratorioExame < ApplicationRecord
+
+end
