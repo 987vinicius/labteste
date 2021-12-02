@@ -1,1 +1,27 @@
 # encoding: UTF-8
+pt-BR:
+  activerecord:
+    models: &MODELS
+      laboratorio: Laboratório
+      exame: Exame
+    attributes:
+      name_and_description: &BASIC
+        <<: *MODELS
+        nome: Nome
+        endereco_compl: Endereço Completo
+        status: Status
+        created_at: Criação
+        updated_at: Atualização
+      laboratorio: &LABORATORIO
+        <<: *BASIC
+        nome: Nome
+        endereco_compl: Endereço Completo
+        status: Status
+      exame: &EXAME
+        <<: *BASIC
+        nome: Nome
+        tipo: Tipo de Exame
+        status: Status
+
+        <<: *LABORATORIO
+        <<: *EXAME

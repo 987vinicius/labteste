@@ -98,3 +98,4 @@ gem 'ransack'
 gem 'bootsnap', '~> 1.1', '>= 1.1.7'
 
 gem 'cocoon'
+gem 'simple_form'

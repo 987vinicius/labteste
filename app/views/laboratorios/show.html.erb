@@ -1,59 +1,44 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Nome:</strong>
-  <%= @laboratorio.nome %>
-</p>
-
-<p>
-  <strong>Cnpj:</strong>
-  <%= @laboratorio.cnpj %>
-</p>
-
-<p>
-  <strong>Rua:</strong>
-  <%= @laboratorio.rua %>
-</p>
-
-<p>
-  <strong>Bairro:</strong>
-  <%= @laboratorio.bairro %>
-</p>
-
-<p>
-  <strong>Logradouro:</strong>
-  <%= @laboratorio.logradouro %>
-</p>
-
-<p>
-  <strong>Numero:</strong>
-  <%= @laboratorio.numero %>
-</p>
-
-<p>
-  <strong>Complemento:</strong>
-  <%= @laboratorio.complemento %>
-</p>
-
-<p>
-  <strong>Cep:</strong>
-  <%= @laboratorio.cep %>
-</p>
-
-<p>
-  <strong>Cidade:</strong>
-  <%= @laboratorio.cidade %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @laboratorio.estado %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @laboratorio.status %>
-</p>
-
-<%= link_to 'Edit', edit_laboratorio_path(@laboratorio) %> |
-<%= link_to 'Back', laboratorios_path %>
+<div class="box-header with-border">
+  <h3 class="box-title">Dados Básicos</h3>
+</div>
+<div class="box-body no-padding">
+  <table class="table table-bordered table-striped">
+    <tr>
+      <td width="2%"><strong><%= Laboratorio.human_attribute_name(:nome) %>:</strong></td>
+      <td width="35%"><%= @laboratorio.nome %></td>
+      <td width="2%"><strong><%= Laboratorio.human_attribute_name(:cnpj) %>:</strong></td>
+      <td width="35%"><%= @laboratorio.cnpj %></td>
+    </tr>
+    <tr>
+      <td width="2%"><strong><%= Laboratorio.human_attribute_name(:rua) %>:</strong></td>
+      <td width="35%"><%= @laboratorio.rua %></td>
+      <td width="2%"><strong><%= Laboratorio.human_attribute_name(:bairro) %>:</strong></td>
+      <td width="35%"><%= @laboratorio.bairro %></td>
+    </tr>
+    <tr>
+      <td width="2%"><strong><%= Laboratorio.human_attribute_name(:numero) %>:</strong></td>
+      <td width="35%"><%= @laboratorio.numero %></td>
+      <td width="2%"><strong><%= Laboratorio.human_attribute_name(:logradouro) %>:</strong></td>
+      <td width="35%"><%= @laboratorio.logradouro %></td>
+    </tr>
+    <tr>
+      <td width="2%"><strong><%= Laboratorio.human_attribute_name(:cep) %>:</strong></td>
+      <td width="35%"><%= @laboratorio.cep %></td>
+      <td width="2%"><strong><%= Laboratorio.human_attribute_name(:complemento) %>:</strong></td>
+      <td width="35%"><%= @laboratorio.complemento %></td>
+    </tr>
+    <tr>
+      <td width="2%"><strong><%= Laboratorio.human_attribute_name(:cidade) %>:</strong></td>
+      <td width="35%"><%= @laboratorio.cidade %></td>
+      <td width="2%"><strong><%= Laboratorio.human_attribute_name(:estado) %>:</strong></td>
+      <td width="35%"><%= @laboratorio.estado %></td>
+    </tr>
+    <tr>
+      <td width="2%"><strong><%= Laboratorio.human_attribute_name(:status) %>:</strong></td>
+      <td width="35%"><%= @laboratorio.status %></td>
+    </tr>
+  </table>
+  <div class="box-footer">
+    <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default" %>
+  </div>
+</div>
