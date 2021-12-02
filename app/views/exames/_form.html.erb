@@ -8,11 +8,15 @@
         <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
           <%= f.input :tipo, as: :select,
                   collection: Exame.tipos.collect{|k, v|
-                    [t("activerecord.attributes.mdeo.tipos.#{k}"), k]
+                    [t("activerecord.attributes.exame.tipos.#{k}"), k]
                   }, label: 'Tipo' %>
         </div>
         <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
-          <%= f.input :status %>
+            <%= f.input :status, as: :select,
+                    collection: Exame.statuses.collect{|k, v|
+                      [t("activerecord.attributes.exame.statuses.#{k}"), k]
+                    }, label: 'Status' %>
+        </div>
         </div>
       </div>
     </div>
