@@ -4,7 +4,20 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENU PRINCIPAL</li>
-        
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-list"></i><span>SMARTPHONE</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li> <%= link_to Exame.model_name.human.pluralize, exames_path %></li>
+              <li>	<%= link_to Laboratorio.model_name.human.pluralize, laboratorios_path %></li>
+            </ul>
+          </li>
+
+      </ul>
     </section>
     <!-- /.sidebar -->
-  </aside>
+</aside>
