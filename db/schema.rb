@@ -17,19 +17,10 @@ ActiveRecord::Schema.define(version: 2021_12_02_223843) do
 
   create_table "exames", force: :cascade do |t|
     t.string "nome"
+    t.integer "tipo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status"
-    t.integer "tipo"
-  end
-
-  create_table "laboratorio_exames", force: :cascade do |t|
-    t.bigint "laboratorio_id"
-    t.bigint "exame_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["exame_id"], name: "index_laboratorio_exames_on_exame_id"
-    t.index ["laboratorio_id"], name: "index_laboratorio_exames_on_laboratorio_id"
   end
 
   create_table "laboratorios", force: :cascade do |t|
@@ -57,8 +48,6 @@ ActiveRecord::Schema.define(version: 2021_12_02_223843) do
     t.index ["laboratorio_id"], name: "index_laboratorios_exames_on_laboratorio_id"
   end
 
-  add_foreign_key "laboratorio_exames", "exames"
-  add_foreign_key "laboratorio_exames", "laboratorios"
   add_foreign_key "laboratorios_exames", "exames"
   add_foreign_key "laboratorios_exames", "laboratorios"
 end
