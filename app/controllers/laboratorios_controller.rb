@@ -8,6 +8,7 @@ class LaboratoriosController < ApplicationController
 
   # GET /laboratorios/1 or /laboratorios/1.json
   def show
+    @laboratorios = Laboratorio.all
   end
 
   # GET /laboratorios/new
