@@ -59,6 +59,7 @@ end
 group :production do
   # Use Unicorn as the app server
   gem 'unicorn'
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
