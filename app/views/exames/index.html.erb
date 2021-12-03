@@ -1,6 +1,24 @@
 <div class="box box-danger">
   <div class="box-header with-border inside">
     <div class="card-header with-border">
+      <%= simple_form_for :q, url: @url, html: {method: :get} do |f| %>
+        <div class="row">
+          <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+            <label>Nome do Exame</label>
+            <%= f.input :nome_cont, required: false, label: false %>
+          </div>
+        </div>
+        <p>
+        <div class="col-12"></div>
+        <%= f.submit "Pesquisar", class: 'btn btn-danger' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="box box-danger">
+  <div class="box-header with-border inside">
+    <div class="card-header with-border">
       <h3 class="card-title">
         <strong>
           <i class="fa fa-list"></i>

@@ -3,7 +3,8 @@ class ExamesController < ApplicationController
 
   # GET /exames or /exames.json
   def index
-    @exames = Exame.all
+    @q = Exame.ransack(params[:q])
+    @exames = @q.result
   end
 
   # GET /exames/1 or /exames/1.json
