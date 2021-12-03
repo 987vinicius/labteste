@@ -96,3 +96,7 @@ gem 'ransack'
 
 # Boot large ruby/rails apps faster
 gem 'bootsnap', '~> 1.1', '>= 1.1.7'
+
+gem 'cocoon'
+gem 'simple_form'
+gem 'ransack'

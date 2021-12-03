@@ -1,0 +1,66 @@
+<div class="box box-danger">
+  <div class="box-header with-border inside">
+    <div class="card-header with-border">
+      <%= simple_form_for :q, url: @url, html: {method: :get} do |f| %>
+        <div class="row">
+          <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+            <label>Nome do Exame</label>
+            <%= f.input :nome_cont, required: false, label: false %>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+            <label>Tipo</label>
+            <%= f.input :tipo_eq, required: false, label: false %>
+          </div>
+        </div>
+        <p>
+        <div class="col-12"></div>
+        <%= f.submit "Pesquisar", class: 'btn btn-danger' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="box box-danger">
+  <div class="box-header with-border inside">
+    <div class="card-header with-border">
+      <h3 class="card-title">
+        <strong>
+          <i class="fa fa-list"></i>
+          Exame(s)
+        </strong>
+      </h3>
+    </div>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-striped bootstrap-table-paginated">
+              <thead>
+                <tr>
+                  <th class='text-center'>Nome</th>
+                  <th class='text-center'>Tipo</th>
+                  <th class='text-center'>Status</th>
+                  <th class='text-center'>Ações</th>
+                </tr>
+              </thead>
+            <tbody>
+              <% @exames.each do |exame| %>
+                <tr>
+                  <td class='text-center'><%= exame.nome %></td>
+                  <td class='text-center'><%= exame.tipo %></td>
+                  <td class='text-center'><%= exame.status %></td>
+                  <td class='text-center'>
+                    <%= render 'shared/action_links', object: exame %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Criar', new_exame_path, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>

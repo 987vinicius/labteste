@@ -80,6 +80,7 @@ GEM
     climate_control (0.2.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
+    cocoon (1.2.15)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 5.2.0)
@@ -294,6 +295,7 @@ DEPENDENCIES
   byebug
   capybara
   chosen-rails
+  cocoon
   factory_bot_rails (~> 4.0)
   font-awesome-rails
   jbuilder (~> 2.5)

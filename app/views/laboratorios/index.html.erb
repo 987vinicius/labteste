@@ -1,0 +1,60 @@
+<div class="box box-danger">
+  <div class="box-header with-border inside">
+    <div class="card-header with-border">
+      <h3 class="card-title">
+        <strong>
+          <i class="fa fa-list"></i>
+          Laboratório(s)
+        </strong>
+      </h3>
+    </div>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-striped bootstrap-table-paginated">
+              <thead>
+                <tr>
+                  <th class='text-center'>Nome</th>
+                  <th class='text-center'>Cnpj</th>
+                  <th class='text-center'>Rua</th>
+                  <th class='text-center'>Bairro</th>
+                  <th class='text-center'>Logradouro</th>
+                  <th class='text-center'>Numero</th>
+                  <th class='text-center'>Complemento</th>
+                  <th class='text-center'>Cep</th>
+                  <th class='text-center'>Cidade</th>
+                  <th class='text-center'>Estado</th>
+                  <th class='text-center'>Status</th>
+                  <th class='text-center'>Ações</th>
+                </tr>
+              </thead>
+            <tbody>
+              <% @laboratorios.each do |laboratorio| %>
+                <tr>
+                  <td><%= laboratorio.nome %></td>
+                  <td><%= laboratorio.cnpj %></td>
+                  <td><%= laboratorio.rua %></td>
+                  <td><%= laboratorio.bairro %></td>
+                  <td><%= laboratorio.logradouro %></td>
+                  <td><%= laboratorio.numero %></td>
+                  <td><%= laboratorio.complemento %></td>
+                  <td><%= laboratorio.cep %></td>
+                  <td><%= laboratorio.cidade %></td>
+                  <td><%= laboratorio.estado %></td>
+                  <td><%= laboratorio.status %></td>
+                  <td class='text-center'>
+                    <%= render 'shared/action_links', object: laboratorio %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Criar', new_laboratorio_path, class: "btn btn-danger" %>
+    </div>
+  </div>
+</div>
