@@ -27,10 +27,6 @@ module LaboratorioAlliver
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-<<<<<<< HEAD
-		# config.assets.initialize_on_precompile = false
-		# config.assets.js_compressor = Uglifier.new(:harmony => true)
-=======
 
 		config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
@@ -39,6 +35,5 @@ module LaboratorioAlliver
 		  logger.formatter = config.log_formatter
 		  config.logger = ActiveSupport::TaggedLogging.new(logger)
 		end
->>>>>>> development
 	end
 end
