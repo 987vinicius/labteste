@@ -13,17 +13,41 @@
       <tr>
         <td width="2%"><strong><%= Exame.human_attribute_name(:status) %>:</strong></td>
         <td width="35%"><%= @exame.status %></td>
-        <td width="2%"><strong><%= Laboratorio.human_attribute_name(:laboratorio) %>:</strong></td>
-        <td width="35%">
-            <% @exame.laboratorios.each do |g| %>
-              <%= g.nome if g.nome.present?%><br>
-            <% end %>
-        </td>
       </tr>
     </table>
   </div>
+</div>
+
+<div class="box box-danger">
   <div class="box-header with-border inside">
-    <%= link_to 'Voltar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default" %>
-    <%= link_to 'Editar', edit_exame_path(@exame), class: "btn btn-primary" %>
+    <h3 class="box-title">
+      Relação de laboratório(s)
+    </h3>
   </div>
+  <div class="box-body no-padding">
+    <table class="table table-striped table-bordered" id="lic">
+      <thead>
+        <tr>
+          <th class='text-left'>Nome</th>
+          <th class='text-left'>CNPJ</th>
+          <th class='text-left'>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-vertical">
+          <% @exame.laboratorios.each do |l| %>
+            <tr class="text-vertical">
+              <td class='text-left'><%= l.nome if l.nome.present? %></td>
+              <td class='text-left'><%= l.cnpj if l.cnpj.present? %></td>
+              <td class='text-left'><%= l.status if l.status.present? %></td>
+            </tr>
+            <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="box-footer">
+  <%= link_to 'Voltar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default" %>
+  <%= link_to 'Editar', edit_exame_path(@exame), class: "btn btn-primary" %>
 </div>
