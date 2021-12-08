@@ -10,17 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_02_223843) do
+ActiveRecord::Schema.define(version: 2021_12_08_170611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "exames", force: :cascade do |t|
     t.string "nome"
-    t.integer "tipo"
+    t.string "tipo_exame"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status"
+    t.bigint "laboratorio_item_id"
+    t.bigint "laboratorio_id"
+    t.index ["laboratorio_id"], name: "index_exames_on_laboratorio_id"
+    t.index ["laboratorio_item_id"], name: "index_exames_on_laboratorio_item_id"
+  end
+
+  create_table "group_labs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "laboratorio_items", force: :cascade do |t|
+    t.bigint "group_lab_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_lab_id"], name: "index_laboratorio_items_on_group_lab_id"
   end
 
   create_table "laboratorios", force: :cascade do |t|
@@ -31,23 +46,14 @@ ActiveRecord::Schema.define(version: 2021_12_02_223843) do
     t.string "logradouro"
     t.integer "numero"
     t.string "complemento"
-    t.integer "cep"
+    t.string "cep"
     t.string "cidade"
     t.string "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "status"
   end
 
-  create_table "laboratorios_exames", force: :cascade do |t|
-    t.bigint "laboratorio_id"
-    t.bigint "exame_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["exame_id"], name: "index_laboratorios_exames_on_exame_id"
-    t.index ["laboratorio_id"], name: "index_laboratorios_exames_on_laboratorio_id"
-  end
-
-  add_foreign_key "laboratorios_exames", "exames"
-  add_foreign_key "laboratorios_exames", "laboratorios"
+  add_foreign_key "exames", "laboratorio_items"
+  add_foreign_key "exames", "laboratorios"
+  add_foreign_key "laboratorio_items", "group_labs"
 end

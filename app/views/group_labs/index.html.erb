@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Group Labs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group_labs.each do |group_lab| %>
+      <tr>
+        <td><%= link_to 'Show', group_lab %></td>
+        <td><%= link_to 'Edit', edit_group_lab_path(group_lab) %></td>
+        <td><%= link_to 'Destroy', group_lab, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Group Lab', new_group_lab_path %>

@@ -9,7 +9,7 @@
           </div>
           <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
             <label>Tipo</label>
-            <%= f.input :tipo_eq, required: false, label: false %>
+            <%= f.input :tipo_exame_eq, required: false, label: false %>
           </div>
         </div>
         <p>
@@ -47,8 +47,7 @@
               <% @exames.each do |exame| %>
                 <tr>
                   <td class='text-center'><%= exame.nome %></td>
-                  <td class='text-center'><%= exame.tipo %></td>
-                  <td class='text-center'><%= exame.status %></td>
+                  <td class='text-center'><%= exame.tipo_exame %></td>
                   <td class='text-center'>
                     <%= render 'shared/action_links', object: exame %>
                   </td>

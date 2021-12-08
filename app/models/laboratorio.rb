@@ -1,5 +1,6 @@
 class Laboratorio < ApplicationRecord
-  has_and_belongs_to_many :exames, join_table: "laboratorios_exames"
+  belongs_to :laboratorio_item, dependent: :destroy, optional: true
+	has_many :exames, through: :laboratorio
 
-  enum status: %i[ativo inativo].freeze
+  accepts_nested_attributes_for :exames, reject_if: :all_blank, allow_destroy: true
 end

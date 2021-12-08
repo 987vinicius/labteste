@@ -8,10 +8,9 @@ class CreateLaboratorios < ActiveRecord::Migration[5.2]
       t.string :logradouro
       t.integer :numero
       t.string :complemento
-      t.integer :cep
+      t.string :cep
       t.string :cidade
       t.string :estado
-      t.boolean :status
 
       t.timestamps
     end

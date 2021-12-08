@@ -1,6 +1,6 @@
 class Exame < ApplicationRecord
-  has_and_belongs_to_many :laboratorios, join_table: "laboratorios_exames"
+  belongs_to :laboratorio_item, optional: true
+  belongs_to :laboratorio, optional: true
 
-  enum tipo: %i[analise imagem].freeze
-  enum status: %i[ativo inativo].freeze
+  validates :nome, :tipo_exame, presence: true
 end

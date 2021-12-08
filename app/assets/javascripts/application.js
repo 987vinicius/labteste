@@ -47,3 +47,70 @@ function display_fields(link) {
   }
   $(link).parent().next().toggle("fast");
 }
+
+$(document).ready(function() {
+  $('#group_items').on('cocoon:before-insert', function(e, insertedItem) {
+    if (insertedItem.hasClass('item')) {
+      $('#group_items .nested-fields .display_fields').removeClass("fa-minus");
+      $('#group_items .nested-fields .display_fields').addClass("fa-plus");
+      $('#group_items .nested-fields .fundo-branco').hide();
+    }
+  });
+
+  $('#group_items').on('cocoon:after-remove', function(e, insertedItem) {
+    update_indexes_items();
+  });
+
+
+  $(".add_laboratorio_item").
+    data("association-insertion-method", 'append').
+    data("association-insertion-node", function(link){
+        return link.parent().parent().parent().find('table')
+  });
+
+  $('#group_items').on('cocoon:after-insert', function(e, insertedItem) {
+    if (insertedItem.hasClass('item')) {
+      insertedItem.find('i').attr('onclick', 'display_fields(this)');
+
+      i = 1;
+      $("#group_items input[id$=_id]").each(function() {
+        $(this).val(i);
+        i= i + 1;
+      });
+
+      $("#group_items textarea[id$=_name]").each(function() {
+        $(this).change(function() {
+          update_tabs();
+        });
+      });
+
+      $("#group_items input[id$=_tipo]").each(function() {
+        $(this).change(function() {
+          update_tabs();
+        });
+      });
+
+      $(".add_licitacao_item").
+        data("association-insertion-method", 'append').
+        data("association-insertion-node", function(link){
+          return link.parent().parent().parent().find('table')
+        });
+
+      // index_sortables();
+      // $(".survey_questions_title input[type=text]").each(function() {
+        // $(this).change(function() {
+          // $(this).parent().parent().parent().parent().find("b").text("Questão: " + $(this).val());
+        // });
+      // });
+    }
+  });
+
+
+  $('#group_items').on('cocoon:after-insert', function(e, insertedItem) {
+    if (($('tr:visible').length) > 0 ) {
+      $('#add_exame').attr('disabled', true)
+          .css({"pointer-events" : "none" , "opacity" :  "0.0"})
+          .attr("tabindex" , "-1");
+    }
+  });
+});
