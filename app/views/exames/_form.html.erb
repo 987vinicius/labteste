@@ -6,19 +6,19 @@
         <%= f.input :nome %>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
-        <%= f.input :tipo, as: :select,
-                collection: Exame.tipos.collect{|k, v|
-                  [t("activerecord.attributes.exame.tipos.#{k}"), k]
-                }, label: 'Tipo' %>
+        <%= f.input :exame_tipo, as: :select,
+                collection: Exame.exame_tipos.collect{|k, v|
+                  [t("activerecord.attributes.exame.exame_tipos.#{k}"), k]
+                }, label: 'Tipo Exame' %>
       </div>
       <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
-        <%= f.input :status, as: :select,
-                collection: Exame.statuses.collect{|k, v|
-                  [t("activerecord.attributes.exame.statuses.#{k}"), k]
-                }, label: 'Status' %>
+        <%= f.input :exame_state, as: :select,
+                collection: Exame.exame_states.collect{|k, v|
+                  [t("activerecord.attributes.exame_states.exame_states.#{k}"), k]
+                }, label: 'Tipo' %>
       </div>
       <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
-        <%= f.association :laboratorios, label_method: :nome, input_html: { class: 'chzn-select'} %>
+        <%= f.association :laboratorio, label_method: :nome, input_html: { class: 'chzn-select'} %>
       </div>
     </div>
     <div class="box-footer">

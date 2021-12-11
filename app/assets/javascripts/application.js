@@ -49,48 +49,59 @@ function display_fields(link) {
 }
 
 $(document).ready(function() {
-  $('#group_items').on('cocoon:before-insert', function(e, insertedItem) {
+  $('#lots_group').on('cocoon:before-insert', function(e, insertedItem) {
     if (insertedItem.hasClass('item')) {
-      $('#group_items .nested-fields .display_fields').removeClass("fa-minus");
-      $('#group_items .nested-fields .display_fields').addClass("fa-plus");
-      $('#group_items .nested-fields .fundo-branco').hide();
+      $('#lots_group .nested-fields .display_fields').removeClass("fa-minus");
+      $('#lots_group .nested-fields .display_fields').addClass("fa-plus");
+      $('#lots_group .nested-fields .fundo-branco').hide();
     }
   });
 
-  $('#group_items').on('cocoon:after-remove', function(e, insertedItem) {
+  $('#lots_group').on('cocoon:after-remove', function(e, insertedItem) {
+    calculate_licitacoes_items_values();
     update_indexes_items();
   });
 
 
-  $(".add_laboratorio_item").
+  $(".add_lab_item").
     data("association-insertion-method", 'append').
     data("association-insertion-node", function(link){
         return link.parent().parent().parent().find('table')
   });
 
-  $('#group_items').on('cocoon:after-insert', function(e, insertedItem) {
+  $('#lots_group').on('cocoon:after-insert', function(e, insertedItem) {
     if (insertedItem.hasClass('item')) {
       insertedItem.find('i').attr('onclick', 'display_fields(this)');
 
-      i = 1;
-      $("#group_items input[id$=_id]").each(function() {
-        $(this).val(i);
-        i= i + 1;
-      });
-
-      $("#group_items textarea[id$=_name]").each(function() {
+      $("#lots_group textarea[id$=_laboratorio]").each(function() {
         $(this).change(function() {
           update_tabs();
         });
       });
 
-      $("#group_items input[id$=_tipo]").each(function() {
+      $("#lots_group input[id$=_exame]").each(function() {
         $(this).change(function() {
           update_tabs();
         });
       });
 
-      $(".add_licitacao_item").
+      $("#lots_group input[id$=_tipo_exame]").each(function() {
+        $(this).change(function() {
+          update_tabs();
+        });
+      });
+
+      $("#lots_group input[id$=_tipo_status]").each(function() {
+        $(this).change(function() {
+          update_tabs();
+        });
+      });
+
+      $(".ui-sortable").on("sortbeforestop", function( event, ui ) {
+        update_tabs();
+      });
+
+      $(".add_lab_item").
         data("association-insertion-method", 'append').
         data("association-insertion-node", function(link){
           return link.parent().parent().parent().find('table')
@@ -105,10 +116,9 @@ $(document).ready(function() {
     }
   });
 
-
-  $('#group_items').on('cocoon:after-insert', function(e, insertedItem) {
+  $('#lots_group').on('cocoon:after-insert', function(e, insertedItem) {
     if (($('tr:visible').length) > 0 ) {
-      $('#add_exame').attr('disabled', true)
+      $('#add_group').attr('disabled', true)
           .css({"pointer-events" : "none" , "opacity" :  "0.0"})
           .attr("tabindex" , "-1");
     }

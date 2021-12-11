@@ -8,6 +8,9 @@ class GroupLabsController < ApplicationController
 
   # GET /group_labs/1 or /group_labs/1.json
   def show
+    @exames = Exame.all
+    @laboratorios = Laboratorio.all
+    # byebug
   end
 
   # GET /group_labs/new
@@ -65,7 +68,7 @@ class GroupLabsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def group_lab_params
       params.require(:group_lab).permit(:id,
-                                laboratorio_items_attributes: [:id, :group_lab_id, :_destroy,
-                                exames_attributes: [:id, :laboratorio_id, :laboratorio_item_id, :nome, :tipo_exame, :_destroy]])
+                                laboratorio_items_attributes: [:id, :nome, :group_lab_id, :_destroy,
+                                exames_attributes: [:id, :laboratorio_id, :laboratorio_item_id, :exame_tipo, :exame_state, :nome, :_destroy]])
     end
 end

@@ -233,6 +233,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    seed_migration (1.2.3)
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -315,6 +316,7 @@ DEPENDENCIES
   rb-readline
   rspec-rails (~> 3.6)
   sass-rails (~> 5.0)
+  seed_migration
   selenium-webdriver
   simple_form
   spring

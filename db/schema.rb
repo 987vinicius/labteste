@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_08_170611) do
+ActiveRecord::Schema.define(version: 2021_12_10_023732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2021_12_08_170611) do
     t.datetime "updated_at", null: false
     t.bigint "laboratorio_item_id"
     t.bigint "laboratorio_id"
+    t.integer "exame_tipo"
+    t.integer "exame_state"
     t.index ["laboratorio_id"], name: "index_exames_on_laboratorio_id"
     t.index ["laboratorio_item_id"], name: "index_exames_on_laboratorio_item_id"
   end
@@ -29,6 +31,8 @@ ActiveRecord::Schema.define(version: 2021_12_08_170611) do
   create_table "group_labs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "group_state"
+    t.integer "group_tipo"
   end
 
   create_table "laboratorio_items", force: :cascade do |t|
@@ -51,6 +55,14 @@ ActiveRecord::Schema.define(version: 2021_12_08_170611) do
     t.string "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lab_state"
+    t.integer "exame_state"
+  end
+
+  create_table "seed_migration_data_migrations", id: :serial, force: :cascade do |t|
+    t.string "version"
+    t.integer "runtime"
+    t.datetime "migrated_on"
   end
 
   add_foreign_key "exames", "laboratorio_items"

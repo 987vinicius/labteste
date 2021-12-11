@@ -1,12 +1,21 @@
 <tr class="nested-fields">
   <td width="20%">
-    <%= f.association :laboratorio, label: false, class: 'col-md-4 form-control' %>
+    <%= f.association :laboratorio, label_method: :nome, label: false, class: 'col-md-4 form-control' %>
   </td>
   <td width="15%">
     <%= f.text_field :nome, class: 'col-md-3 form-control' %>
   </td>
-  <td width="10%">
-    <%= f.text_field :tipo_exame, class: 'col-md-3 form-control' %>
+  <td width="15%">
+    <%= f.input :exame_tipo, as: :select,
+            collection: Exame.exame_tipos.collect{|k, v|
+              [t("activerecord.attributes.exame.exame_tipos.#{k}"), k]
+            }, label: 'Tipo Exame', label: false %>
+  </td>
+  <td width="15%">
+    <%= f.input :exame_state, as: :select,
+            collection: Exame.exame_states.collect{|k, v|
+              [t("activerecord.attributes.exame.exame_states.#{k}"), k]
+            }, label: 'Tipo', label: false %>
   </td>
   <th>
     <%= link_to_remove_association f, class: 'btn btn-danger btn-mini' do %>

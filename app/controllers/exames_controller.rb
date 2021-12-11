@@ -5,6 +5,8 @@ class ExamesController < ApplicationController
   def index
     @q = Exame.ransack(params[:q])
     @exames = @q.result
+
+    @laboratorio = Laboratorio.all
   end
 
   # GET /exames/1 or /exames/1.json
@@ -65,7 +67,7 @@ class ExamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def exame_params
-      params.require(:exame).permit(:nome, :tipo, :status,
+      params.require(:exame).permit(:nome, :tipo, :exame_tipo, :exame_state,
                                     :laboratorio, :laboratorio_id, laboratorio_ids:[])
     end
 end

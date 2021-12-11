@@ -1,7 +1,7 @@
 <%= simple_form_for @laboratorio do |f| %>
-    <div class="box box-danger">
-      <div class="box-header with-border inside">
-
+<div class="form-group">
+  <div class="box box-danger">
+    <div class="box-header with-border inside">
       <div class="row">
         <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
           <%= f.input :nome %>
@@ -48,18 +48,20 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <%= f.input :estado %>
         </div>
-          <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
-            <%= f.input :status, as: :select,
-            collection: Laboratorio.statuses.collect{|k, v|
-              [t("activerecord.attributes.laboratorio.statuses.#{k}"), k]
-            }, label: 'Status' %>
-          </div>
-      </div>
-
-        <div class="box-footer">
-          <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default" %>
-          <%= f.submit class: "btn btn-primary" %>
+        <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
+          <%= f.input :lab_state, as: :select,
+                  collection: Laboratorio.lab_states.collect{|k, v|
+                    [t("activerecord.attributes.laboratorios.lab_states.#{k}"), k]
+                  }, label: 'Tipo' %>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box box-danger">
+    <div class="box-body">
+      <%= link_to 'Cancelar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default" %>
+      <%= f.submit class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>

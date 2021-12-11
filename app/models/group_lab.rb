@@ -7,4 +7,5 @@ class GroupLab < ActiveRecord::Base
   accepts_nested_attributes_for :laboratorios, allow_destroy: true
   accepts_nested_attributes_for :laboratorio_items, allow_destroy: true
   accepts_nested_attributes_for :exames, allow_destroy: true
+
 end

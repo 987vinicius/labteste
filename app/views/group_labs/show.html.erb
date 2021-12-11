@@ -1,4 +1,35 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_group_lab_path(@group_lab) %> |
-<%= link_to 'Back', group_labs_path %>
+<div class="box box-danger">
+  <div class="box-header with-border inside">
+    <h3 class="box-title">Dados Básicos</h3>
+  </div>
+  <div class="box-body no-padding">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr class="text-vertical">
+          <th class='text-center'>Laboratório</th>
+          <th class='text-center'>CNPJ</th>
+          <th class='text-center'>Nome Exame</th>
+          <th class='text-center'>Tipo</th>
+          <th class='text-center'>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @exames.each do |d| %>
+          <tr class="text-vertical">
+            <td class='text-center'><%= d.laboratorio.nome %></td>
+            <td class='text-center'><%= d.laboratorio.cnpj %></td>
+            <td class='text-center'><%= d['nome'] %></td>
+            <td class='text-center'><%= d['exame_tipo'] %></td>
+            <td class='text-center'><%= d['exame_state'] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="box box-danger">
+  <div class="box-header with-border inside">
+    <%= link_to 'Voltar', eval_with_rescue("#{controller_name}_path"), class: "btn btn-default" %>
+    <%= link_to 'Editar', edit_group_lab_path(@group_lab), class: "btn btn-primary" %>
+  </div>
+</div>

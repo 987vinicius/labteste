@@ -47,7 +47,8 @@
               <% @exames.each do |exame| %>
                 <tr>
                   <td class='text-center'><%= exame.nome %></td>
-                  <td class='text-center'><%= exame.tipo_exame %></td>
+                  <td class='text-center'><%= exame.nome %></td>
+                  <td class='text-center'><%= exame.nome %></td>
                   <td class='text-center'>
                     <%= render 'shared/action_links', object: exame %>
                   </td>
@@ -58,8 +59,10 @@
         </div>
       </div>
     </div>
-    <div class="card-footer">
-      <%= link_to 'Criar', new_exame_path, class: "btn btn-danger" %>
-    </div>
+  </div>
+</div>
+<div class="box box-danger">
+  <div class="box-header with-border inside">
+    <%= link_to 'Criar', new_exame_path, class: "btn btn-danger" %>
   </div>
 </div>

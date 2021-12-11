@@ -9,6 +9,7 @@ class LaboratoriosController < ApplicationController
   # GET /laboratorios/1 or /laboratorios/1.json
   def show
     @laboratorios = Laboratorio.all
+    @group_labs = GroupLab.all
   end
 
   # GET /laboratorios/new
@@ -65,6 +66,7 @@ class LaboratoriosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def laboratorio_params
-      params.require(:laboratorio).permit(:nome, :cnpj, :rua, :bairro, :logradouro, :numero, :complemento, :cep, :cidade, :estado, :status)
+      params.require(:laboratorio).permit(:nome, :cnpj, :rua, :bairro, :logradouro, :numero, :complemento, :cep, :cidade, :estado, :lab_state,
+                                          tipo_status_attributes: [:id, :nome, :_destroy])
     end
 end

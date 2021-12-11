@@ -5,20 +5,16 @@
   <div class="box-header with-border inside">
     <table class="table table-bordered table-striped">
       <tr>
-        <td width="2%"><strong><%= Exame.human_attribute_name(:nome) %>:</strong></td>
+        <td width="8%"><strong><%= Exame.human_attribute_name(:nome) %>:</strong></td>
         <td width="35%"><%= @exame.nome %></td>
-        <td width="7%"><strong><%= Exame.human_attribute_name(:tipo_exame) %>:</strong></td>
-        <td width="35%"><%= @exame.tipo %></td>
+        <td width="7%"><strong><%= Exame.human_attribute_name(:exame_tipo) %>:</strong></td>
+        <td width="35%"><%= @exame.exame_tipo %></td>
       </tr>
       <tr>
-        <td width="2%"><strong><%= Exame.human_attribute_name(:status) %>:</strong></td>
-        <td width="35%"><%= @exame.status %></td>
+        <td width="2%"><strong><%= Exame.human_attribute_name(:exame_state) %>:</strong></td>
+        <td width="35%"><%= @exame.exame_state %></td>
         <td width="2%"><strong><%= Laboratorio.human_attribute_name(:laboratorio) %>:</strong></td>
-        <td width="35%">
-            <% @exame.laboratorios.each do |g| %>
-              <%= g.nome if g.nome.present?%><br>
-            <% end %>
-        </td>
+        <td width="35%"><%= @exame.laboratorio.nome %></td>
       </tr>
     </table>
   </div>
